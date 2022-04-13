@@ -37,7 +37,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
-                <img src="/img/logo_favicon.ico" width="30" class="d-inline-block align-text-top me-1">
+                <img src="/img/SuperDog_50.png" width="30" class="d-inline-block align-text-top me-1">
                 SuperDog Events</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +67,50 @@
 
     <main class="flex-shrink-0">
         <div class="container mt-5">
-            
+            <div class="row">
+                <div class="col-1">
+                    <img src="img/SuperDog_50.png">
+                </div>
+                <div class="col-2"></div>
+                    <h1>SuperDog</h1>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="eventDropDownButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Pick a location
+                        </button>
+                        <ul class="dropdown-menu" id="eventDropDownList" aria-labelledby="eventDropDownButton">
+                            <!-- CITY DATA GOES HERE -->
+                        </ul>
+                    </div>
+                    <table class="table table-hover table-dark table-striped">
+                        <tr>
+                            <th class="" colspan="2" id="statsHeader">Stats For All Events</th>
+                        </tr>
+                        <tr>
+                            <td>Total Attendance</td>
+                            <td id="total">100</td>
+                        </tr>
+                        <tr>
+                            <td>Average Attendance</td>
+                            <td id="average">100</td>
+                        </tr>
+                        <tr>
+                            <td>Most Attendance</td>
+                            <td id="most">100</td>
+                        </tr>
+                        <tr>
+                            <td>Least Attendance</td>
+                            <td id="least">100</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col">
+
+                </div>
+            </div>
         </div>
     </main>
 
@@ -75,7 +118,7 @@
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-md-3 gy-2">
                 <div class="col order-last order-md-first">
-                    <span>&copy; 2022</span>Chris Rivera | C.Rivera07@oulook.com
+                    <span>&copy; 2022</span> Chris Rivera | C.Rivera07@oulook.com
                 </div>
                 <div class="col d-flex align-items-center justitfy-content-start justify-content-lg-center">
                     <img src="/img/logo_side_by_side_750-removebg-preview.png" height="50">
@@ -96,6 +139,18 @@
             </div>
         </div>
     </footer>
+
+
+    <template id="dropDownTemplate">
+        <li>
+            <a class="dropdown-item" onclick="getEventData(this)" href="#"></a>
+        </li>
+
+    </template>
+
+
+
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
@@ -106,7 +161,9 @@
 
 
     <script>
-        document.getElementById("btnSubmit").addEventListener("click", getMessage)
+        window.onload = (event) => {
+            buildDropDown();
+        }
     </script>
 
 
