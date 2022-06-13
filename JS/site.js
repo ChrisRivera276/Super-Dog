@@ -77,7 +77,6 @@ function buildDropDown() {
     //get the template
     let ddNode = document.importNode(ddTemplate.content, true);
 
-
     // add all the items to the dropdown
     let ddLink = ddNode.querySelector("a");
     ddLink.setAttribute("data-city", "All");
@@ -97,13 +96,11 @@ function buildDropDown() {
 
         let ddNode = document.importNode(ddTemplate.content, true);
 
-
         // add all the items to the dropdown
         let ddLink = ddNode.querySelector("a");
         ddLink.setAttribute("data-city", distinctCities[index]);
         ddLink.textContent = distinctCities[index];
         eventDD.appendChild(ddNode);
-
     }
     // set the header
     let statsHeader = document.getElementById("statsHeader");
@@ -117,7 +114,6 @@ function buildDropDown() {
 function getEventData(element) {
     let city = element.getAttribute("data-city");
 
-
     // create the stats for the clicked city 
     let curEvents = getEvents();
     let filteredEvents = curEvents;
@@ -128,7 +124,6 @@ function getEventData(element) {
             if (event.city == city) {
                 return event;
             }
-
         });
     }
     let statsHeader = document.getElementById("statsHeader");
@@ -136,7 +131,6 @@ function getEventData(element) {
     // call a funtion 
     displayStats(filteredEvents);
 }
-
 
 // pull the events from local storage or the default array events.
 function getEvents() {
@@ -158,7 +152,6 @@ function displayStats(filteredEvents) {
     let least = -1;
     let currentAttendance = 0;
 
-
     for (let index = 0; index < filteredEvents.length; index++) {
 
         currentAttendance = filteredEvents[index].attendance;
@@ -174,7 +167,6 @@ function displayStats(filteredEvents) {
 
     }
 
-
     average = total / filteredEvents.length;
 
     // write values to the page
@@ -188,12 +180,11 @@ function displayStats(filteredEvents) {
         }
     );
 
-
 }
 // this function displays all of the event data in a 
 // grid on the bottom of the page
 function displayEventData(curEvents) {
-    let template = document.getElementById("eventDate-template");
+    let template = document.getElementById("eventData-template");
     let eventBody = document.getElementById("eventBody");
 
     // clear the table of previos data
@@ -251,5 +242,4 @@ function saveEventData() {
     localStorage.setItem("eventData", JSON.stringify(curEvents));
 
     buildDropDown();
-
 }
